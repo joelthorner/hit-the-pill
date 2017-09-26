@@ -1,0 +1,20 @@
+html, body {
+  height: 100%;
+  position: relative; }
+
+svg:not(:root) {
+  overflow: visible !important; }
+
+#container {
+  height: 20rem;
+  width: 20rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto; }
+
+#svg {
+  height: 100%;
+  width: 100%; }
