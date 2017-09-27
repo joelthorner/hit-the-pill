@@ -1,6 +1,46 @@
 html, body{
 	height: 100%;
 	position: relative;
+	overflow: hidden;
+}
+body{
+	cursor: pointer;
+	background-position: center;
+	background-size: 100%;
+}
+canvas{
+	position: absolute;
+	top: 0;left: 0;right: 0;bottom: 0;
+	z-index: -1;
+}
+.bg{
+	animation: rotate 3s linear infinite; 
+	&:before{
+		content: "";
+		display: block;
+		padding-bottom: 100%;
+	}
+	@media(orientation: landscape) {
+		top: -75%;
+		bottom: -75%;
+		left: -50%;
+		right: -50%;
+
+	}
+	@media(orientation: portrait) {
+		top: -50%;
+		bottom: -50%;
+		left: -75%;
+		right: -75%;
+	}
+	@media(max-width: 400px) and (orientation: portrait){
+		top: -75%;
+		bottom: -75%;
+		left: -75%;
+		right: -75%;
+	}
+	position: absolute;
+	z-index: -1;
 }
 svg:not(:root){
 	overflow: visible !important;
@@ -18,4 +58,14 @@ svg:not(:root){
 #svg{
 	height: 100%;
 	width: 100%;
+}
+@keyframes rotate {
+	0% {
+		transform-origin: 50% 50%;
+		transform: rotate(0deg);
+	}
+	100% {
+		transform-origin: 50% 50%;
+		transform: rotate(360deg);
+	}
 }
