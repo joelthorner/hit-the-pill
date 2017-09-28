@@ -2,9 +2,9 @@ html, body{
 	height: 100%;
 	position: relative;
 	overflow: hidden;
+	font-family: 'Roboto', sans-serif;
 }
 body{
-	cursor: pointer;
 	background-position: center;
 	background-size: 100%;
 }
@@ -12,6 +12,16 @@ canvas{
 	position: absolute;
 	top: 0;left: 0;right: 0;bottom: 0;
 	z-index: -1;
+}
+.hidden{
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
 }
 .bg{
 	animation: rotate 3s linear infinite; 
@@ -38,6 +48,7 @@ canvas{
 		bottom: -75%;
 		left: -75%;
 		right: -75%;
+		transform: scale(1.5);
 	}
 	position: absolute;
 	z-index: -1;
@@ -48,16 +59,36 @@ svg:not(:root){
 #container{
 	height: 20rem;
 	width: 20rem;
+	@media(max-width: 600px) {
+		height: 15rem;
+		width: 15rem;
+	}
 	position: absolute;
 	left: 0;
 	right: 0;
 	top: 0;
 	bottom: 0;
 	margin: auto;
+	transition: all 375ms ease;
+
+	.open & {
+		transform: translateX(-#{(8/2)}rem);
+		@media(max-width: 600px) {
+			transform: translateX(-#{(6/2)}rem);
+		}
+	}
+	.open-init &{
+		transition: none;
+		transform: translateX(-#{(8/2)}rem);
+		@media(max-width: 600px) {
+			transform: translateX(-#{(6/2)}rem);
+		}
+	}
 }
 #svg{
 	height: 100%;
 	width: 100%;
+	cursor: pointer;
 }
 @keyframes rotate {
 	0% {
@@ -67,5 +98,77 @@ svg:not(:root){
 	100% {
 		transform-origin: 50% 50%;
 		transform: rotate(360deg);
+	}
+}
+aside{
+	@media(max-width: 600px) {
+		width: 6rem;
+		transform: translateX(6rem);
+	}
+	width: 8rem;
+	height: 100%;
+	display: block;
+	background-color: rgba(0, 0, 0, 0.55);
+	position: fixed;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	transform: translateX(8rem);
+	transition: all 375ms ease;
+
+	.open &{
+		transform: translateX(0);
+	}
+	.open-init &{
+		transition: none;
+		transform: translateX(0);
+	}
+	.button{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+	ul{
+		height: calc(100% - 70px);
+	}
+	li{
+		height: 12.5%;
+		position: relative;
+		svg{
+			height: 75%;
+			width: 75%;
+			max-width: 70px;
+			max-height: 70px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			margin: auto;
+			fill: #FFF;
+			@media(max-width: 600px) {
+				width: 50%;
+			}
+		}
+	}
+}
+.n{
+	color: #FFF;
+	font-size: 12px;
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	// transform: translateY(-50%);
+	background-color: rgba(0, 0, 0, 0.24);
+	height: 19px;
+	width: 19px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	line-height: 1;
+	&:empty{
+		display: none;
 	}
 }
