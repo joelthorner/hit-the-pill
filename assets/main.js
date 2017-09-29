@@ -87,6 +87,7 @@ $(document).ready(function() {
 	$('#clear').click(function(event) {
 		
 		$('html').removeClass('open-init open');
+		$('#winner').text('')
 		
 		setTimeout(function(){
 			$('.menu ul li svg, .menu ul li .n').html('');
