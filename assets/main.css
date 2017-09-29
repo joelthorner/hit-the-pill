@@ -1,12 +1,28 @@
+/* Joelthorner 2017 - http://joelthorner.github.io/hit-the-pill/ */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
 html, body {
   height: 100%;
   position: relative;
   overflow: hidden;
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+}
 
 body {
   background-position: center;
-  background-size: 100%; }
+  background-size: 100%;
+  text-shadow: 0 0 7px rgba(0, 0, 0, .3);
+  -webkit-tap-highlight-color: transparent;
+}
+
+::-moz-selection {
+  background-color: transparent;
+  color: #FFF;
+}
+
+::selection {
+  background-color: transparent;
+  color: #FFF;
+}
 
 canvas {
   position: absolute;
@@ -14,7 +30,8 @@ canvas {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: -1; }
+  z-index: -1;
+}
 
 .hidden {
   position: absolute;
@@ -24,44 +41,63 @@ canvas {
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
-  border: 0; }
+  border: 0;
+}
 
 .bg {
-  -webkit-animation: rotate 3s linear infinite;
-  animation: rotate 3s linear infinite;
   position: absolute;
-  z-index: -1; }
-  .bg:before {
-    content: "";
-    display: block;
-    padding-bottom: 100%; }
-  @media (orientation: landscape) {
-    .bg {
-      top: -75%;
-      bottom: -75%;
-      left: -50%;
-      right: -50%; } }
-  @media (orientation: portrait) {
-    .bg {
-      top: -50%;
-      bottom: -50%;
-      left: -75%;
-      right: -75%; } }
-  @media (max-width: 400px) and (orientation: portrait) {
-    .bg {
-      top: -75%;
-      bottom: -75%;
-      left: -75%;
-      right: -75%;
-      -webkit-transform: scale(1.5);
-      -ms-transform: scale(1.5);
-      transform: scale(1.5); } }
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+}
 
 svg:not(:root) {
-  overflow: visible !important; }
+  overflow: visible !important;
+}
+
+.winner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  text-align: center;
+  color: #FFF;
+  top: 5%;
+  font-size: 32px;
+  font-size: 2rem;
+  font-weight: bold;
+  transition: all 375ms ease;
+}
+
+.open .winner {
+  -webkit-transform: translateX(-4rem);
+  transform: translateX(-4rem);
+}
+
+@media (max-width: 600px) {
+  .open .winner {
+    -webkit-transform: translateX(-3rem);
+    transform: translateX(-3rem);
+  }
+}
+
+.open-init .winner {
+  transition: none;
+  -webkit-transform: translateX(-4rem);
+  transform: translateX(-4rem);
+}
+
+@media (max-width: 600px) {
+  .open-init .winner {
+    -webkit-transform: translateX(-3rem);
+    transform: translateX(-3rem);
+  }
+}
 
 #container {
+  height: 320px;
   height: 20rem;
+  width: 320px;
   width: 20rem;
   position: absolute;
   left: 0;
@@ -69,121 +105,146 @@ svg:not(:root) {
   top: 0;
   bottom: 0;
   margin: auto;
-  -webkit-transition: all 375ms ease;
-  -o-transition: all 375ms ease;
-  transition: all 375ms ease; }
-  @media (max-width: 600px) {
-    #container {
-      height: 15rem;
-      width: 15rem; } }
+  transition: all 375ms ease;
+}
+
+@media (max-width: 600px) {
+  #container {
+    height: 15rem;
+    width: 15rem;
+  }
+}
+
+.open #container {
+  -webkit-transform: translateX(-4rem);
+  transform: translateX(-4rem);
+}
+
+@media (max-width: 600px) {
   .open #container {
-    -webkit-transform: translateX(-4rem);
-    -ms-transform: translateX(-4rem);
-    transform: translateX(-4rem); }
-    @media (max-width: 600px) {
-      .open #container {
-        -webkit-transform: translateX(-3rem);
-        -ms-transform: translateX(-3rem);
-        transform: translateX(-3rem); } }
+    -webkit-transform: translateX(-3rem);
+    transform: translateX(-3rem);
+  }
+}
+
+.open-init #container {
+  transition: none;
+  -webkit-transform: translateX(-4rem);
+  transform: translateX(-4rem);
+}
+
+@media (max-width: 600px) {
   .open-init #container {
-    -webkit-transition: none;
-    -o-transition: none;
-    transition: none;
-    -webkit-transform: translateX(-4rem);
-    -ms-transform: translateX(-4rem);
-    transform: translateX(-4rem); }
-    @media (max-width: 600px) {
-      .open-init #container {
-        -webkit-transform: translateX(-3rem);
-        -ms-transform: translateX(-3rem);
-        transform: translateX(-3rem); } }
+    -webkit-transform: translateX(-3rem);
+    transform: translateX(-3rem);
+  }
+}
 
 #svg {
   height: 100%;
   width: 100%;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 @-webkit-keyframes rotate {
   0% {
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg); }
+    transform: rotate(0deg);
+  }
   100% {
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
     -webkit-transform: rotate(360deg);
-    transform: rotate(360deg); } }
+    transform: rotate(360deg);
+  }
+}
 
 @keyframes rotate {
   0% {
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg); }
+    transform: rotate(0deg);
+  }
   100% {
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
     -webkit-transform: rotate(360deg);
-    transform: rotate(360deg); } }
+    transform: rotate(360deg);
+  }
+}
 
 aside {
+  width: 128px;
   width: 8rem;
   height: 100%;
   display: block;
-  background-color: rgba(0, 0, 0, 0.55);
+  background-color: rgba(0, 0, 0, .55);
   position: fixed;
   right: 0;
   top: 0;
   bottom: 0;
   -webkit-transform: translateX(8rem);
-  -ms-transform: translateX(8rem);
   transform: translateX(8rem);
-  -webkit-transition: all 375ms ease;
-  -o-transition: all 375ms ease;
-  transition: all 375ms ease; }
-  @media (max-width: 600px) {
-    aside {
-      width: 6rem;
-      -webkit-transform: translateX(6rem);
-      -ms-transform: translateX(6rem);
-      transform: translateX(6rem); } }
-  .open aside {
-    -webkit-transform: translateX(0);
-    -ms-transform: translateX(0);
-    transform: translateX(0); }
-  .open-init aside {
-    -webkit-transition: none;
-    -o-transition: none;
-    transition: none;
-    -webkit-transform: translateX(0);
-    -ms-transform: translateX(0);
-    transform: translateX(0); }
-  aside .button {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0; }
-  aside ul {
-    height: calc(100% - 70px); }
-  aside li {
-    height: 12.5%;
-    position: relative; }
-    aside li svg {
-      height: 75%;
-      width: 75%;
-      max-width: 70px;
-      max-height: 70px;
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      top: 0;
-      margin: auto;
-      fill: #FFF; }
-      @media (max-width: 600px) {
-        aside li svg {
-          width: 50%; } }
+  transition: all 375ms ease;
+}
+
+@media (max-width: 600px) {
+  aside {
+    width: 6rem;
+    -webkit-transform: translateX(6rem);
+    transform: translateX(6rem);
+  }
+}
+
+.open aside {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.open-init aside {
+  transition: none;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+aside .button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+aside ul {
+  height: calc(100% - 70px);
+}
+
+aside li {
+  height: 12.5%;
+  position: relative;
+}
+
+aside li svg {
+  height: 75%;
+  width: 75%;
+  max-width: 70px;
+  max-height: 70px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  fill: #FFF;
+}
+
+@media (max-width: 600px) {
+  aside li svg {
+    width: 50%;
+  }
+}
 
 .n {
   color: #FFF;
@@ -191,22 +252,22 @@ aside {
   position: absolute;
   top: 8px;
   left: 8px;
-  background-color: rgba(0, 0, 0, 0.24);
+  background-color: rgba(0, 0, 0, .24);
   height: 19px;
   width: 19px;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
   border-radius: 50%;
-  line-height: 1; }
-  .n:empty {
-    display: none; }
+  line-height: 1;
+}
+
+.n:empty {
+  display: none;
+}

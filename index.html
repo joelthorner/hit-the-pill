@@ -6,21 +6,23 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="theme-color" content="#ff363c">
 
-	<title>NAME - Joel Thorner</title>
-	<link rel="icon" type="image/png" href="img/icon.png">
+	<title>Hit the pill - Joel Thorner</title>
 	
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="manifest" href="manifest.json">
 	<link rel="stylesheet" href="assets/reset.css">
 	<link rel="stylesheet" href="assets/main.css">
 	<link rel="stylesheet" href="assets/elasticButton.css">
 </head>
 <body>
 
+	<div class="winner" id="winner"></div>
+
 	<div id="container">
 		<svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
 			<path id="path-1" fill="#fff" d="M276.823 69.516C272.53 47.28 259.825 28.028 241.06 15.36 226.96 5.817 210.567.78 193.606.78c-28.242 0-54.52 13.95-70.322 37.282L36.188 166.885c-12.693 18.773-17.313 41.35-13.006 63.61 4.293 22.237 16.998 41.48 35.758 54.146 14.09 9.558 30.496 14.58 47.457 14.58 28.23 0 54.508-13.95 70.298-37.294L263.79 133.13c12.718-18.798 17.327-41.364 13.033-63.614zM153.303 246.06c-10.528 15.577-28.07 24.894-46.905 24.894-11.28 0-22.236-3.375-31.616-9.72-12.505-8.448-20.978-21.267-23.85-36.112-2.87-14.834.23-29.88 8.677-42.37l34.75-51.42c5.163-7.63 15.55-9.646 23.206-4.483l65.993 44.61c3.674 2.47 6.206 6.32 7.05 10.665.83 4.367-.075 8.852-2.557 12.527L153.3 246.064l.002-.005z"/>
 		</svg>
 	</div>
+
 
 	<aside class="menu">
 		<ul>
@@ -77,6 +79,10 @@
 				<!-- caca -->
 				<path d="M265.52 187.118c0-.034 0-.034 0 0 0-.034 0-.034 0 0 3.403-5.948 5.33-12.79 5.33-20.115 0-22.11-17.778-40.025-39.82-40.23 3.715-9.044 3.715-17.297 3.715-17.297 0-55.292-37.55-65.746-54.64-67.637-2.785-.31-4.745 2.647-3.37 5.088 1.617 2.854 2.65 6.81 1.273 11.794-3.438 12.31-16.746 10.59-23.176 10.59h-47.797c-22.144 0-40.094 17.95-40.094 40.094v.104c0 6.154 1.376 12.07 3.852 17.227h-1.307c-22.213 0-40.37 18.02-40.37 40.23 0 7.324 2.03 14.202 5.468 20.117h.07-.07C17.77 191.897 5.39 207.404 5.39 225.768 5.39 247.982 23.512 266 45.76 266h208.688c22.214 0 40.162-17.983 40.162-40.23-.034-18.364-12.277-33.837-29.09-38.652z"/>
 			</symbol>
+			<symbol>
+				<!-- skull -->
+				<path d="M278.87 158.773c9.143-43.765-4.1-88.474-35.71-120.077C218.253 13.816 185.182.11 150.002.11s-68.25 13.706-93.155 38.586c-31.6 31.6-44.88 76.304-35.712 120.077-3.602 10.505-3.79 21.714-.566 32.606 5.95 19.924 23.203 35.16 50.394 37.022v34.56c0 10.645 6.26 20.147 15.97 24.212 5.274 2.21 11.82 4.486 19.042 6.6v-21.417c0-4.854 4.045-8.782 8.9-8.782 4.853 0 8.78 3.93 8.78 8.782v25.483c5.598 1.006 11.322 1.663 17.45 2.047v-27.53c0-4.854 4.044-8.782 8.898-8.782s8.782 3.93 8.782 8.782v27.53c6.125-.384 11.85-1.042 17.447-2.047v-25.483c0-4.854 4.045-8.782 8.898-8.782 4.855 0 8.783 3.93 8.783 8.782v21.417c7.22-2.113 13.885-4.388 19.16-6.6 9.707-4.064 15.852-13.566 15.852-24.21V228.36c27.7-1.756 44.83-17.286 50.63-37.462 3.107-10.744 2.85-21.8-.685-32.125zM97.31 193.436c-24.218 0-44.027-19.816-44.027-44.028 0-24.21 19.81-44.028 44.028-44.028 24.22 0 44.03 19.818 44.03 44.028-.002 24.21-19.81 44.028-44.03 44.028zm70.258 35.01h-35.13c-7.814 0-11.703-9.478-6.208-14.99l17.564-17.564c3.43-3.43 8.987-3.43 12.418 0l17.564 17.564c5.495 5.513 1.607 14.99-6.208 14.99zm35.127-35.01c-24.22 0-44.027-19.816-44.027-44.028 0-24.21 19.81-44.028 44.027-44.028 24.22 0 44.028 19.818 44.028 44.028 0 24.21-19.808 44.028-44.028 44.028z"/>
+			</symbol>
 
 			<symbol id="winner">
 				<!-- WINNER -->
@@ -87,12 +93,13 @@
 
 	<div class="bg"></div>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-	<script src="https://cdn.jsdelivr.net/kute.js/1.6.2/kute.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/kute.js/1.6.2/kute.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/kute.js/1.6.2/kute-svg.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/kute.js/1.6.2/kute-text.min.js"></script>
+
 	<script src="assets/snap.svg-min.js"></script>
 	<script src="assets/elasticButton.js"></script>
 	<script src="assets/stars.js"></script>

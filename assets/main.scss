@@ -1,12 +1,22 @@
+/* Joelthorner 2017 - http://joelthorner.github.io/hit-the-pill/ */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
 html, body{
 	height: 100%;
 	position: relative;
 	overflow: hidden;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 body{
 	background-position: center;
 	background-size: 100%;
+	text-shadow: 0 0 7px rgba(0, 0, 0, 0.30);
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+} 
+::selection{
+	background-color: transparent;
+	color: #FFF;
 }
 canvas{
 	position: absolute;
@@ -24,37 +34,40 @@ canvas{
 	border: 0;
 }
 .bg{
-	animation: rotate 3s linear infinite; 
-	&:before{
-		content: "";
-		display: block;
-		padding-bottom: 100%;
-	}
-	@media(orientation: landscape) {
-		top: -75%;
-		bottom: -75%;
-		left: -50%;
-		right: -50%;
-
-	}
-	@media(orientation: portrait) {
-		top: -50%;
-		bottom: -50%;
-		left: -75%;
-		right: -75%;
-	}
-	@media(max-width: 400px) and (orientation: portrait){
-		top: -75%;
-		bottom: -75%;
-		left: -75%;
-		right: -75%;
-		transform: scale(1.5);
-	}
 	position: absolute;
 	z-index: -1;
+	height: 100%;
+	width: 100%;
 }
 svg:not(:root){
 	overflow: visible !important;
+}
+
+.winner{
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	text-align: center;
+	color: #FFF;
+	top: 5%;
+	font-size: 2rem;
+	font-weight: bold;
+	transition: all 375ms ease;
+
+	.open & {
+		transform: translateX(-#{(8/2)}rem);
+		@media(max-width: 600px) {
+			transform: translateX(-#{(6/2)}rem);
+		}
+	}
+	.open-init &{
+		transition: none;
+		transform: translateX(-#{(8/2)}rem);
+		@media(max-width: 600px) {
+			transform: translateX(-#{(6/2)}rem);
+		}
+	}
 }
 #container{
 	height: 20rem;
@@ -159,7 +172,6 @@ aside{
 	position: absolute;
 	top: 8px;
 	left: 8px;
-	// transform: translateY(-50%);
 	background-color: rgba(0, 0, 0, 0.24);
 	height: 19px;
 	width: 19px;

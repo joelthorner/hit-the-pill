@@ -1,0 +1,26 @@
+{
+	"short_name": "Hit the pill",
+	"name": "Hit the pill by joelthorner",
+	"icons": [{
+		"src": "assets/img/icon-128x128.png",
+		"type": "image/png",
+		"sizes": "128x128"
+	}, {
+		"src": "assets/img/apple-touch-icon.png",
+		"type": "image/png",
+		"sizes": "152x152"
+	}, {
+		"src": "assets/img/ms-touch-icon-144x144-precomposed.png",
+		"type": "image/png",
+		"sizes": "144x144"
+	}, {
+		"src": "assets/img/chrome-touch-icon-192x192.png",
+		"type": "image/png",
+		"sizes": "192x192"
+	}],
+	"start_url": "/",
+	"background_color": "#000",
+	"theme_color": "#000",
+	"orientation": "portrait",
+	"display": "standalone"
+}
